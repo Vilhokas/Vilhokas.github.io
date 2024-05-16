@@ -92,8 +92,8 @@ function startTimer() {
   const interval = setInterval(() => {
     if (count % 2 === 0) {
       bars.forEach((bar) => {
-        bar.classList.toggle("red");
-        bar.classList.toggle("lightred");
+        bar.classList.add("red");
+        bar.classList.add("lightred");
       });
     }
     count++;
