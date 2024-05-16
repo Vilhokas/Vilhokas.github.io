@@ -88,7 +88,13 @@ function startTimer() {
   clickingEnabled = false;
   const bars = document.querySelectorAll(".bar");
   let count = 0;
-
+  
+  bars.forEach((bar) => {
+    bar.classList.add("red");
+    bar.classList.add("lightred");
+    };
+        
+  
   const interval = setInterval(() => {
     if (count % 2 === 0) {
       bars.forEach((bar) => {
