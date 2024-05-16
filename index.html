@@ -90,13 +90,24 @@ function startTimer() {
   let count = 0;
 
   const interval = setInterval(() => {
-    bars.forEach((bar) => {
-      bar.classList.toggle("red");
-      bar.classList.toggle("lightred");
-    });
+    if (count % 2 === 0) {
+      bars.forEach((bar) => {
+        bar.classList.toggle("red");
+        bar.classList.toggle("lightred");
+      });
+    } else {
+      bars.forEach((bar) => {
+        bar.classList.toggle("green");
+        bar.classList.toggle("lightgreen");
+      });
+    }
     count++;
     if (count >= 28) {
       clearInterval(interval);
+      bars.forEach((bar) => {
+        bar.classList.remove("red", "lightred");
+        bar.classList.add("green", "lightgreen");
+      });
       clickingEnabled = true;
     }
   }, 250); // Vaihda väriä joka palkille 0.25 sekunnin välein
