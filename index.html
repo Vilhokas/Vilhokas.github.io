@@ -26,6 +26,10 @@
     width: 100%;
     height: 10%;
     box-sizing: border-box;
+    position: absolute;
+    top: -10%;
+    left: 0;
+    animation: moveBars 4s infinite linear;
   }
 
   .blue {
@@ -47,28 +51,32 @@
     max-height: calc(50vw * (3/2)); /* Rajoitetaan kortin maksimikorkeus, jos ikkuna on matala */
     background-color: white;
     border: 2px solid black;
-    border-radius: 30px;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  @keyframes moveBars {
+    0% {
+      top: -10%;
+    }
+    100% {
+      top: 100%;
+    }
   }
 </style>
 </head>
 <body>
 
 <div class="rectangle" id="bars">
-  <div class="card"></div>
+  <div class="card" onclick="startTimer()"></div>
 </div>
 
 <script>
-const barsContainer = document.getElementById("bars");
-const barCount = 10;
-
-generateBars();
-
-function generateBars() {
-  for (let i = 0; i < barCount; i++) {
-    const bar = document.createElement("div");
-    bar.className = i % 2 === 0 ? "bar blue" : "bar lightblue";
-    barsContainer.appendChild(bar);
-  }
+function startTimer() {
+  const bars = document.querySelectorAll(".bar");
+  bars.forEach((bar) => {
+    bar.style.animationPlayState = "running";
+  });
 }
 </script>
 
