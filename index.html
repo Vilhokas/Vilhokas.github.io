@@ -47,19 +47,21 @@
     max-height: calc(50vw * (3/2)); /* Rajoitetaan kortin maksimikorkeus, jos ikkuna on matala */
     background-color: white;
     border: 2px solid black;
-    border-radius: 40px;
+    border-radius: 10px;
+    cursor: pointer;
   }
 </style>
 </head>
 <body>
 
 <div class="rectangle" id="bars">
-  <div class="card"></div>
+  <div class="card" onclick="startTimer()"></div>
 </div>
 
 <script>
-const barsContainer = document.getElementById("bars");
+const bars = document.querySelectorAll(".bar");
 const barCount = 10;
+let timerRunning = false;
 
 generateBars();
 
@@ -68,6 +70,21 @@ function generateBars() {
     const bar = document.createElement("div");
     bar.className = i % 2 === 0 ? "bar blue" : "bar lightblue";
     barsContainer.appendChild(bar);
+  }
+}
+
+function startTimer() {
+  if (!timerRunning) {
+    timerRunning = true;
+    bars.forEach((bar, index) => {
+      setTimeout(() => {
+        bar.classList.toggle("blue");
+        bar.classList.toggle("lightblue");
+      }, index * 250); // Vaihda väriä joka palkille 0.25 sekunnin välein
+    });
+    setTimeout(() => {
+      timerRunning = false;
+    }, 5000); // Pysäytä vilkutus 5 sekunnin kuluttua
   }
 }
 </script>
