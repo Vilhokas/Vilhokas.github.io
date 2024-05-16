@@ -31,12 +31,20 @@
     left: 0;
   }
 
-  .blue {
-    background-color: blue;
+  .red {
+    background-color: red;
   }
 
-  .lightblue {
-    background-color: lightblue;
+  .lightred {
+    background-color: #FFA07A; /* Vaaleanpunainen */
+  }
+
+  .green {
+    background-color: green;
+  }
+
+  .lightgreen {
+    background-color: #90EE90; /* Vaalean vihreä */
   }
 
   .card {
@@ -59,16 +67,16 @@
 
 <div class="rectangle" id="bars">
   <!-- Palkit -->
-  <div class="bar blue"></div>
-  <div class="bar lightblue" style="top: 10%;"></div>
-  <div class="bar blue" style="top: 20%;"></div>
-  <div class="bar lightblue" style="top: 30%;"></div>
-  <div class="bar blue" style="top: 40%;"></div>
-  <div class="bar lightblue" style="top: 50%;"></div>
-  <div class="bar blue" style="top: 60%;"></div>
-  <div class="bar lightblue" style="top: 70%;"></div>
-  <div class="bar blue" style="top: 80%;"></div>
-  <div class="bar lightblue" style="top: 90%;"></div>
+  <div class="bar red"></div>
+  <div class="bar lightred" style="top: 10%;"></div>
+  <div class="bar red" style="top: 20%;"></div>
+  <div class="bar lightred" style="top: 30%;"></div>
+  <div class="bar red" style="top: 40%;"></div>
+  <div class="bar lightred" style="top: 50%;"></div>
+  <div class="bar red" style="top: 60%;"></div>
+  <div class="bar lightred" style="top: 70%;"></div>
+  <div class="bar red" style="top: 80%;"></div>
+  <div class="bar lightred" style="top: 90%;"></div>
   
   <div class="card" id="card"></div> <!-- Kortti tähän -->
 </div>
@@ -83,15 +91,13 @@ function startTimer() {
 
   const interval = setInterval(() => {
     bars.forEach((bar) => {
-      bar.classList.toggle("blue");
-      bar.classList.toggle("lightblue");
+      bar.classList.toggle("red");
+      bar.classList.toggle("lightred");
     });
     count++;
     if (count >= 28) {
       clearInterval(interval);
       clickingEnabled = true;
-      const audio = new Audio("https://drive.google.com/file/d/1Ra9rzmig8jz_El6OO_5Rngxrd1kNl5Zz/view?usp=drive_link");
-      audio.play(); // Soita ääni kun vilkkuminen on ohi
     }
   }, 250); // Vaihda väriä joka palkille 0.25 sekunnin välein
 }
