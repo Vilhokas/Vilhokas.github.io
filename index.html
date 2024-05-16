@@ -70,24 +70,37 @@
   <div class="bar blue" style="top: 80%;"></div>
   <div class="bar lightblue" style="top: 90%;"></div>
   
-  <div class="card" onclick="startTimer()"></div> <!-- Kortti tähän -->
+  <div class="card" id="card"></div> <!-- Kortti tähän -->
 </div>
 
 <script>
+let clickingEnabled = true;
+
 function startTimer() {
+  clickingEnabled = false;
   const bars = document.querySelectorAll(".bar");
-  bars.forEach((bar, index) => {
-    setTimeout(() => {
+  let count = 0;
+
+  const interval = setInterval(() => {
+    bars.forEach((bar) => {
       bar.classList.toggle("blue");
       bar.classList.toggle("lightblue");
-    }, index * 250); // Vaihda väriä joka palkille 0.25 sekunnin välein
-  });
-  setTimeout(() => {
-    bars.forEach((bar) => {
-      bar.classList.remove("blue", "lightblue");
     });
-  }, 4000); // Pysäytä vilkutus 4 sekunnin kuluttua
+    count++;
+    if (count >= 28) {
+      clearInterval(interval);
+      clickingEnabled = true;
+      const audio = new Audio("https://www.dropbox.com/scl/fi/fibkrvtszi2dhnkbv2ysg/soundi.mp3?rlkey=mhpsrvsuy1cr1m5w2bm1n6k4i&st=5kcmt2cy&dl=0");
+      audio.play(); // Soita ääni kun vilkkuminen on ohi
+    }
+  }, 250); // Vaihda väriä joka palkille 0.25 sekunnin välein
 }
+
+document.getElementById("card").addEventListener("click", function() {
+  if (clickingEnabled) {
+    startTimer();
+  }
+});
 </script>
 
 </body>
