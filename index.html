@@ -67,16 +67,16 @@
 
 <div class="rectangle" id="bars">
   <!-- Palkit -->
-  <div class="bar red"></div>
-  <div class="bar lightred" style="top: 10%;"></div>
-  <div class="bar red" style="top: 20%;"></div>
-  <div class="bar lightred" style="top: 30%;"></div>
-  <div class="bar red" style="top: 40%;"></div>
-  <div class="bar lightred" style="top: 50%;"></div>
-  <div class="bar red" style="top: 60%;"></div>
-  <div class="bar lightred" style="top: 70%;"></div>
-  <div class="bar red" style="top: 80%;"></div>
-  <div class="bar lightred" style="top: 90%;"></div>
+  <div class="bar green"></div>
+  <div class="bar lightgreen" style="top: 10%;"></div>
+  <div class="bar green" style="top: 20%;"></div>
+  <div class="bar lightgreen" style="top: 30%;"></div>
+  <div class="bar green" style="top: 40%;"></div>
+  <div class="bar lightgreen" style="top: 50%;"></div>
+  <div class="bar green" style="top: 60%;"></div>
+  <div class="bar lightgreen" style="top: 70%;"></div>
+  <div class="bar green" style="top: 80%;"></div>
+  <div class="bar lightgreen" style="top: 90%;"></div>
   
   <div class="card" id="card"></div> <!-- Kortti tähän -->
 </div>
@@ -94,11 +94,6 @@ function startTimer() {
       bars.forEach((bar) => {
         bar.classList.toggle("red");
         bar.classList.toggle("lightred");
-      });
-    } else {
-      bars.forEach((bar) => {
-        bar.classList.toggle("green");
-        bar.classList.toggle("lightgreen");
       });
     }
     count++;
