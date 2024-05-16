@@ -8,5 +8,10 @@
 
 <h1>HUHUU HAHAA</h1>
 
+<div>
+  <p>Tämä on HTML-koodia Markdown-tiedostossa.</p>
+  <button>Klikkaa minua</button>
+</div>
+
 </body>
 </html>
