@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Piirakka</title>
+<title>Palkit</title>
 <style>
   body, html {
     margin: 0;
@@ -11,46 +11,38 @@
     overflow: hidden;
   }
   
-  canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
+  .bar {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .blue {
+    background-color: blue;
+  }
+
+  .lightblue {
+    background-color: lightblue;
   }
 </style>
 </head>
 <body>
 
-<canvas id="piirakka"></canvas>
+<div id="bars"></div>
 
 <script>
-const canvas = document.getElementById("piirakka");
-const ctx = canvas.getContext("2d");
+const barsContainer = document.getElementById("bars");
 
-resizeCanvas();
+generateBars();
 
-window.addEventListener("resize", resizeCanvas);
+function generateBars() {
+  const barCount = 18;
+  const barHeight = 100 / barCount;
 
-function resizeCanvas() {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-
-  const centerX = canvas.width / 2;
-  const centerY = canvas.height / 2;
-  const radius = Math.min(canvas.width, canvas.height) * 0.4;
-  const sliceAngle = Math.PI * 2 / 18;
-
-  for (let i = 0; i < 18; i++) {
-    const startAngle = sliceAngle * i;
-    const endAngle = startAngle + sliceAngle;
-    const color = i % 2 === 0 ? "blue" : "lightblue";
-
-    ctx.beginPath();
-    ctx.moveTo(centerX, centerY);
-    ctx.arc(centerX, centerY, radius, startAngle, endAngle);
-    ctx.closePath();
-    ctx.fillStyle = color;
-    ctx.fill();
+  for (let i = 0; i < barCount; i++) {
+    const bar = document.createElement("div");
+    bar.className = i % 2 === 0 ? "bar blue" : "bar lightblue";
+    bar.style.height = `${barHeight}%`;
+    barsContainer.appendChild(bar);
   }
 }
 </script>
