@@ -66,10 +66,15 @@
 
 <div class="card" onclick="startRotation()">Klikkaa korttia</div> <!-- Kortti -->
 
-<audio id="myAudio"> <!-- Lisää mp3-tiedoston sijainti tähän -->
-  <source src="music.mp3" type="audio/mpeg">
+<audio id="myAudio1"> <!-- Lisää mp3-tiedoston sijainti tähän -->
+  <source src="soundi.mp3" type="audio/mpeg">
   Your browser does not support the audio element.
 </audio>
+
+<audio id="myAudio2"> <!-- Lisää mp3-tiedoston sijainti tähän -->
+  <source src="soundi2.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio> 
 
 <script>
 function startRotation() {
@@ -78,17 +83,8 @@ function startRotation() {
   card.style.backgroundColor = "red"; /* Vaihdetaan kortin väri punaiseksi */
   card.style.transform = "translate(-50%, -50%) rotate(5turn)"; /* Pyöritetään korttia 5 kierrosta ympäri */
   card.textContent = "Arvotaan";
-  
-  <audio id="myAudio1"> <!-- Lisää mp3-tiedoston sijainti tähän -->
-    <source src="soundi.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
-
-  <audio id="myAudio2"> <!-- Lisää mp3-tiedoston sijainti tähän -->
-    <source src="soundi2.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio> 
   myAudio1.play(); // Aloita mp3-tiedoston soitto
+  
   setTimeout(() => {
     card.style.backgroundColor = "white"; /* Palautetaan kortin väri takaisin valkoiseksi */
     card.style.transform = "translate(-50%, -50%)"; /* Palautetaan kortti alkuperäiseen asentoon */
