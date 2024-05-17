@@ -45,12 +45,16 @@
     justify-content: center;
     align-items: center;
     font-size: 2rem;
+    background-image: url('cards/StartCard.png');
     background-size: cover;
     background-position: center;
   }
 
   /* Lisätään hover-efekti, jotta kortin klikattavuus tulee ilmi */
   .card:hover {
+    background-color: red; /* Vaihdetaan taustaväri punaiseksi, kun korttia pidetään päällä */
+  }
+    .card:hover {
     background-color: red; /* Vaihdetaan taustaväri punaiseksi, kun korttia pidetään päällä */
   }
   
@@ -69,7 +73,7 @@
 <div class="bar"></div> <!-- Palkki 9 -->
 <div class="bar"></div> <!-- Palkki 10 -->
 
-<div class="card" onclick="startRotation()">Klikkaa korttia</div> <!-- Kortti -->
+<div class="card" onclick="startRotation()"><!-- Kortti -->
   
 <audio id="myAudio1"> <!-- Lisää mp3-tiedoston sijainti tähän -->
   <source src="InkkariSound1.m4a" type="audio/mpeg">
@@ -77,7 +81,7 @@
 </audio>
 
 <script>
-card.style.backgroundImage = `url('cards/StartCard.png')`;
+//card.style.backgroundImage = `url('cards/StartCard.png')`;
 function startRotation() {
   const card = document.querySelector(".card");
   card.style.transition = "transform 5s"; /* Muutetaan siirtymäominaisuus pyörittämistä varten */
