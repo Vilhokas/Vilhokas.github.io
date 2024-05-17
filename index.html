@@ -32,10 +32,12 @@
     transform: translate(-50%, -50%);
     width: calc(85vh * (203/288));
     height: 85vh;
-    max-width: 75vw; /* Rajoitetaan kortin maksimileveys, jos ikkuna on kapea */
-    max-height: calc(75vw * (288/203)); /* Rajoitetaan kortin maksimikorkeus, jos ikkuna on matala */
-    background-color: white; /* Alkuperäinen väri */
-    border: 2px solid black;
+    max-width: 80vw; /* Rajoitetaan kortin maksimileveys, jos ikkuna on kapea */
+    max-height: calc(80vw * (288/203)); /* Rajoitetaan kortin maksimikorkeus, jos ikkuna on matala */
+    /* background-color: white; Alkuperäinen väri */
+    background-color: rgba(255, 255, 255, 0);
+    border: 2px solid rgba(0, 0, 0, 0.0);
+    /* border: 2px solid black; */
     border-radius: 10px;
     cursor: pointer; /* Vaihdetaan kursori osoittimeksi, kun korttia voidaan klikata */
     transition: background-color 0.25s; /* Lisätään siirtymäominaisuus taustavärin muutokselle */
