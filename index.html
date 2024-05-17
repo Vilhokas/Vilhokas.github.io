@@ -87,6 +87,7 @@ function startRotation() {
   card.style.backgroundImage = `url('cards/BackRed.png')`;
   card.style.transform = "translate(-50%, -50%) rotate(5turn)"; /* Pyöritetään korttia 5 kierrosta ympäri */
   //card.textContent = "Arvotaan";
+  const randomNumber = Math.floor(Math.random() * 52) + 1;
   myAudio1.play(); // Aloita mp3-tiedoston soitto
   
   setTimeout(() => {
@@ -94,9 +95,11 @@ function startRotation() {
     card.style.transform = "translate(-50%, -50%)"; /* Palautetaan kortti alkuperäiseen asentoon */
     card.style.transition = "background-color 0.25s"; /* Palautetaan alkuperäinen siirtymäominaisuus */
     // Arvotaan luku 1-52 ja näytetään se kortin keskellä
-    const randomNumber = Math.floor(Math.random() * 52) + 1;
+    //const randomNumber = Math.floor(Math.random() * 52) + 1;
     //card.textContent = randomNumber;
-     /* Lisätään kuva kortin taustalle arvotun numeron perusteella */
+    /* Lisätään kuva kortin taustalle arvotun numeron perusteella */
+    /* Arvotaan luku 1-52 välillä */
+    
     card.style.backgroundImage = `url('cards/${randomNumber}.png')`;
     //card.style.backgroundImage = `url('cards/King.png')`;
   }, 5000); /* 7 sekunnin kuluttua palautetaan kortti alkuperäiseen tilaan */
