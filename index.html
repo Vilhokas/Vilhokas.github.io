@@ -78,8 +78,11 @@
 </audio>
 
 <script>
-//card.style.backgroundImage = `url('cards/StartCard.png')`;
+
+let clickingEnabled = true;
+
 function startRotation() {
+  clickingEnabled = false;
   const card = document.querySelector(".card");
   card.style.transition = "transform 4.5s"; /* Muutetaan siirtymäominaisuus pyörittämistä varten */
   /* card.style.backgroundColor = "red"; Vaihdetaan kortin väri punaiseksi */
@@ -102,6 +105,7 @@ function startRotation() {
     
     card.style.backgroundImage = `url('cards/${randomNumber}.png')`;
     //card.style.backgroundImage = `url('cards/King.png')`;
+    clickingEnabled = true;
   }, 4500); /* 7 sekunnin kuluttua palautetaan kortti alkuperäiseen tilaan */
 }
 
