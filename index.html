@@ -86,8 +86,8 @@ function startRotation() {
   if (!clickingEnabled) return;
   disableClick();
 
-  const card = document.getElementById(".card");
-  //const card = document.querySelector(".card");
+  //const card = document.getElementById(".card");
+  const card = document.querySelector(".card");
   card.style.transition = "transform 4.5s"; /* Muutetaan siirtymäominaisuus pyörittämistä varten */
   /* card.style.backgroundColor = "red"; Vaihdetaan kortin väri punaiseksi */
   /* Lisätään kuva kortin taustalle arvotun numeron perusteella */
