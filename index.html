@@ -81,7 +81,7 @@
 //card.style.backgroundImage = `url('cards/StartCard.png')`;
 function startRotation() {
   const card = document.querySelector(".card");
-  card.style.transition = "transform 5s"; /* Muutetaan siirtymäominaisuus pyörittämistä varten */
+  card.style.transition = "transform 4.75s"; /* Muutetaan siirtymäominaisuus pyörittämistä varten */
   /* card.style.backgroundColor = "red"; Vaihdetaan kortin väri punaiseksi */
   /* Lisätään kuva kortin taustalle arvotun numeron perusteella */
   card.style.backgroundImage = `url('cards/BackRed.png')`;
@@ -102,7 +102,7 @@ function startRotation() {
     
     card.style.backgroundImage = `url('cards/${randomNumber}.png')`;
     //card.style.backgroundImage = `url('cards/King.png')`;
-  }, 5000); /* 7 sekunnin kuluttua palautetaan kortti alkuperäiseen tilaan */
+  }, 4750); /* 7 sekunnin kuluttua palautetaan kortti alkuperäiseen tilaan */
 }
 
 </script>
