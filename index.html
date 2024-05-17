@@ -82,8 +82,12 @@
 let clickingEnabled = true;
 
 function startRotation() {
-  clickingEnabled = false;
-  const card = document.querySelector(".card");
+
+  if (!clickingEnabled) return;
+  disableClick();
+
+  const card = document.getElementById("card");
+  //const card = document.querySelector(".card");
   card.style.transition = "transform 4.5s"; /* Muutetaan siirtymäominaisuus pyörittämistä varten */
   /* card.style.backgroundColor = "red"; Vaihdetaan kortin väri punaiseksi */
   /* Lisätään kuva kortin taustalle arvotun numeron perusteella */
@@ -105,10 +109,20 @@ function startRotation() {
     
     card.style.backgroundImage = `url('cards/${randomNumber}.png')`;
     //card.style.backgroundImage = `url('cards/King.png')`;
-    clickingEnabled = true;
+    enableClick();
   }, 4500); /* 7 sekunnin kuluttua palautetaan kortti alkuperäiseen tilaan */
 }
 
+function disableClick() {
+  const card = document.getElementById("card");
+  card.removeAttribute("onclick");
+}
+
+function enableClick() {
+  const card = document.getElementById("card");
+  card.setAttribute("onclick", "startRotation()");
+}
+  
 </script>
 
 </body>
