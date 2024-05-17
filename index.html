@@ -39,6 +39,10 @@
     border-radius: 10px;
     cursor: pointer; /* Vaihdetaan kursori osoittimeksi, kun korttia voidaan klikata */
     transition: background-color 0.5s; /* Lisätään siirtymäominaisuus taustavärin muutokselle */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
   }
 
   /* Lisätään hover-efekti, jotta kortin klikattavuus tulee ilmi */
@@ -60,33 +64,39 @@
 <div class="bar"></div> <!-- Palkki 9 -->
 <div class="bar"></div> <!-- Palkki 10 -->
 
-<div class="card" onclick="startRotation()"></div> <!-- Kortti -->
+<div class="card" onclick="startRotation()">Klikkaa korttia</div> <!-- Kortti -->
 
-<audio id="myAudio1"> <!-- Lisää mp3-tiedoston sijainti tähän -->
-  <source src="soundi.mp3" type="audio/mpeg">
+<audio id="myAudio"> <!-- Lisää mp3-tiedoston sijainti tähän -->
+  <source src="music.mp3" type="audio/mpeg">
   Your browser does not support the audio element.
 </audio>
 
-<audio id="myAudio2"> <!-- Lisää mp3-tiedoston sijainti tähän -->
-  <source src="soundi2.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>  
-  
 <script>
 function startRotation() {
   const card = document.querySelector(".card");
   card.style.transition = "transform 7s"; /* Muutetaan siirtymäominaisuus pyörittämistä varten */
   card.style.backgroundColor = "red"; /* Vaihdetaan kortin väri punaiseksi */
   card.style.transform = "translate(-50%, -50%) rotate(5turn)"; /* Pyöritetään korttia 5 kierrosta ympäri */
+  card.textContent = "Arvotaan";
   
-  const audio = document.getElementById("myAudio1");
-  audio.play(); // Aloita mp3-tiedoston soitto
+  <audio id="myAudio1"> <!-- Lisää mp3-tiedoston sijainti tähän -->
+    <source src="soundi.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <audio id="myAudio2"> <!-- Lisää mp3-tiedoston sijainti tähän -->
+    <source src="soundi2.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio> 
+  myAudio1.play(); // Aloita mp3-tiedoston soitto
   setTimeout(() => {
     card.style.backgroundColor = "white"; /* Palautetaan kortin väri takaisin valkoiseksi */
     card.style.transform = "translate(-50%, -50%)"; /* Palautetaan kortti alkuperäiseen asentoon */
     card.style.transition = "background-color 0.5s"; /* Palautetaan alkuperäinen siirtymäominaisuus */
-    const audio = document.getElementById("myAudio2");
-    audio.play(); // Aloita mp3-tiedoston soitto
+    myAudio2.play(); // Aloita mp3-tiedoston soitto
+    // Arvotaan luku 1-52 ja näytetään se kortin keskellä
+    const randomNumber = Math.floor(Math.random() * 52) + 1;
+    card.textContent = randomNumber;
   }, 7000); /* 7 sekunnin kuluttua palautetaan kortti alkuperäiseen tilaan */
 }
 </script>
