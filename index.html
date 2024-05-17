@@ -96,7 +96,9 @@ function startRotation() {
     // Arvotaan luku 1-52 ja näytetään se kortin keskellä
     const randomNumber = Math.floor(Math.random() * 52) + 1;
     //card.textContent = randomNumber;
-    card.style.backgroundImage = `url('cards/King.png')`;
+     /* Lisätään kuva kortin taustalle arvotun numeron perusteella */
+    card.style.backgroundImage = `url('cards/${randomNumber}.png')`;
+    //card.style.backgroundImage = `url('cards/King.png')`;
   }, 5000); /* 7 sekunnin kuluttua palautetaan kortti alkuperäiseen tilaan */
 }
 
