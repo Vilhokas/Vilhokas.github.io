@@ -52,18 +52,6 @@
     background-color: red; /* Vaihdetaan taustaväri punaiseksi, kun korttia pidetään päällä */
   }
   
-  /* Lisätään painike koko näytön tilan vaihtamiseen */
-  #fullscreen {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: #ccc;
-    cursor: pointer;
-    z-index: 9999;
-  }
 </style>
 </head>
 <body>
@@ -80,9 +68,6 @@
 <div class="bar"></div> <!-- Palkki 10 -->
 
 <div class="card" onclick="startRotation()">Klikkaa korttia</div> <!-- Kortti -->
-
-<!-- Koko näytön tilan vaihtopainike -->
-<div id="fullscreen"></div>
   
 <audio id="myAudio1"> <!-- Lisää mp3-tiedoston sijainti tähän -->
   <source src="InkkariSound1.m4a" type="audio/mpeg">
@@ -110,27 +95,7 @@ function startRotation() {
     card.style.backgroundImage = `url('Joker.svg')`;
   }, 5000); /* 7 sekunnin kuluttua palautetaan kortti alkuperäiseen tilaan */
 }
-/* Koko näytön tilan vaihtopainikkeen toiminnallisuus */
-document.getElementById("fullscreen").addEventListener("click", function() {
-  const elem = document.documentElement;
-  if (!document.fullscreenElement) {
-    if (elem.requestFullscreen) {
-      elem.requestFullscreen();
-    } else if (elem.webkitRequestFullscreen) { /* Safari */
-      elem.webkitRequestFullscreen();
-    } else if (elem.msRequestFullscreen) { /* IE11 */
-      elem.msRequestFullscreen();
-    }
-  } else {
-    if (document.exitFullscreen) {
-      document.exitFullscreen();
-    } else if (document.webkitExitFullscreen) { /* Safari */
-      document.webkitExitFullscreen();
-    } else if (document.msExitFullscreen) { /* IE11 */
-      document.msExitFullscreen();
-    }
-  }
-});
+
 </script>
 
 </body>
