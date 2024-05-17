@@ -62,13 +62,8 @@
 
 <div class="card" onclick="startRotation()"></div> <!-- Kortti -->
 
-<audio id="startSound"> <!-- Lisää ensimmäisen mp3-tiedoston sijainti tähän -->
-  <source src="soundi.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
-
-<audio id="endSound"> <!-- Lisää toisen mp3-tiedoston sijainti tähän -->
-  <source src="soundi2.mp3" type="audio/mpeg">
+<audio id="myAudio"> <!-- Lisää mp3-tiedoston sijainti tähän -->
+  <source src="music.mp3" type="audio/mpeg">
   Your browser does not support the audio element.
 </audio>
 
@@ -79,16 +74,15 @@ function startRotation() {
   card.style.backgroundColor = "red"; /* Vaihdetaan kortin väri punaiseksi */
   card.style.transform = "translate(-50%, -50%) rotate(5turn)"; /* Pyöritetään korttia 5 kierrosta ympäri */
   
-  const startSound = document.getElementById("startSound");
-  startSound.play(); // Aloita ensimmäisen mp3-tiedoston soitto
-
+  const audio = document.getElementById("myAudio");
+  audio.play(); // Aloita mp3-tiedoston soitto
   setTimeout(() => {
     card.style.backgroundColor = "white"; /* Palautetaan kortin väri takaisin valkoiseksi */
     card.style.transform = "translate(-50%, -50%)"; /* Palautetaan kortti alkuperäiseen asentoon */
     card.style.transition = "background-color 0.5s"; /* Palautetaan alkuperäinen siirtymäominaisuus */
   }, 7000); /* 7 sekunnin kuluttua palautetaan kortti alkuperäiseen tilaan */
-  
-  setTimeout(() => {
-    const endSound = document.getElementById("endSound");
-    endSound.play(); // Aloita toisen mp3-tiedoston soitto
-  }, 7000); /* 7 sekunn
+}
+</script>
+
+</body>
+</html>
