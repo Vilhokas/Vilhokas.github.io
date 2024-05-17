@@ -90,10 +90,10 @@
 <script>
 function startRotation() {
   const card = document.querySelector(".card");
-  card.style.transition = "transform 4.75s"; /* Muutetaan siirtymäominaisuus pyörittämistä varten */
+  card.style.transition = "transform 5s"; /* Muutetaan siirtymäominaisuus pyörittämistä varten */
   /* card.style.backgroundColor = "red"; Vaihdetaan kortin väri punaiseksi */
   /* Lisätään kuva kortin taustalle arvotun numeron perusteella */
-  card.style.backgroundImage = `url('BackRed.svg')`;
+  card.style.backgroundImage = `url('BackRed.png')`;
   card.style.transform = "translate(-50%, -50%) rotate(5turn)"; /* Pyöritetään korttia 5 kierrosta ympäri */
   card.textContent = "Arvotaan";
   myAudio1.play(); // Aloita mp3-tiedoston soitto
@@ -101,12 +101,12 @@ function startRotation() {
   setTimeout(() => {
     card.style.backgroundColor = "white"; /* Palautetaan kortin väri takaisin valkoiseksi */
     card.style.transform = "translate(-50%, -50%)"; /* Palautetaan kortti alkuperäiseen asentoon */
-    card.style.transition = "background-color 0.3s"; /* Palautetaan alkuperäinen siirtymäominaisuus */
+    card.style.transition = "background-color 0.25s"; /* Palautetaan alkuperäinen siirtymäominaisuus */
     // Arvotaan luku 1-52 ja näytetään se kortin keskellä
     const randomNumber = Math.floor(Math.random() * 52) + 1;
     //card.textContent = randomNumber;
-    card.style.backgroundImage = `url('Joker.svg')`;
-  }, 4750); /* 7 sekunnin kuluttua palautetaan kortti alkuperäiseen tilaan */
+    card.style.backgroundImage = `url('Joker.png')`;
+  }, 5000); /* 7 sekunnin kuluttua palautetaan kortti alkuperäiseen tilaan */
 }
 /* Koko näytön tilan vaihtopainikkeen toiminnallisuus */
 document.getElementById("fullscreen").addEventListener("click", function() {
