@@ -3,48 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Suorakaide ja pelikortit</title>
+<title>Selainikkunan korkeat palkit ja keskellä oleva kortti</title>
 <style>
   body, html {
     margin: 0;
     padding: 0;
-    overflow: hidden;
     height: 100%;
+    overflow: hidden; /* Estää sivua vierittymästä */
   }
-  
-  .rectangle {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
+
+  .bar:nth-child(odd) {
+    background-color: #2ecc71; /* Vihreä väri */
+  }
+
+  .bar:nth-child(even) {
+    background-color: #a9dfbf; /* Vaalean vihreä väri */
   }
 
   .bar {
     width: 100%;
-    height: 10%;
-    box-sizing: border-box;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-
-  .red {
-    background-color: red;
-  }
-
-  .lightred {
-    background-color: #FFA07A; /* Vaaleanpunainen */
-  }
-
-  .green {
-    background-color: green;
-  }
-
-  .lightgreen {
-    background-color: #90EE90; /* Vaalean vihreä */
+    height: 10%; /* Palkkien korkeus on 10% selainikkunan korkeudesta */
   }
 
   .card {
@@ -56,69 +34,42 @@
     height: 75vh;
     max-width: 50vw; /* Rajoitetaan kortin maksimileveys, jos ikkuna on kapea */
     max-height: calc(50vw * (3/2)); /* Rajoitetaan kortin maksimikorkeus, jos ikkuna on matala */
-    background-color: white;
+    background-color: white; /* Alkuperäinen väri */
     border: 2px solid black;
     border-radius: 10px;
+    transition: transform 5s linear, background-color 5s linear; /* Lisätään siirtymäominaisuus: pyöriminen ja taustavärin muutos viidessä sekunnissa */
+  }
+
+  /* Lisätään hover-efekti, jotta kortin klikattavuus tulee ilmi */
+  .card:hover {
     cursor: pointer;
   }
 </style>
 </head>
 <body>
 
-<div class="rectangle" id="bars">
-  <!-- Palkit -->
-  <div class="bar green"></div>
-  <div class="bar lightgreen" style="top: 10%;"></div>
-  <div class="bar green" style="top: 20%;"></div>
-  <div class="bar lightgreen" style="top: 30%;"></div>
-  <div class="bar green" style="top: 40%;"></div>
-  <div class="bar lightgreen" style="top: 50%;"></div>
-  <div class="bar green" style="top: 60%;"></div>
-  <div class="bar lightgreen" style="top: 70%;"></div>
-  <div class="bar green" style="top: 80%;"></div>
-  <div class="bar lightgreen" style="top: 90%;"></div>
-  
-  <div class="card" id="card"></div> <!-- Kortti tähän -->
-</div>
+<div class="bar"></div> <!-- Palkki 1 -->
+<div class="bar"></div> <!-- Palkki 2 -->
+<div class="bar"></div> <!-- Palkki 3 -->
+<div class="bar"></div> <!-- Palkki 4 -->
+<div class="bar"></div> <!-- Palkki 5 -->
+<div class="bar"></div> <!-- Palkki 6 -->
+<div class="bar"></div> <!-- Palkki 7 -->
+<div class="bar"></div> <!-- Palkki 8 -->
+<div class="bar"></div> <!-- Palkki 9 -->
+<div class="bar"></div> <!-- Palkki 10 -->
+
+<div class="card" onclick="rotateCard()"></div> <!-- Kortti -->
 
 <script>
-let clickingEnabled = true;
-
-function startTimer() {
-  clickingEnabled = false;
-  const bars = document.querySelectorAll(".bar");
-  let count = 0;
-  
-  bars.forEach((bar) => {
-    bar.classList.add("red");
-    bar.classList.add("lightred");
-    };
-        
-  
-  const interval = setInterval(() => {
-    if (count % 2 === 0) {
-      bars.forEach((bar) => {
-        bar.classList.add("red");
-        bar.classList.add("lightred");
-      });
-    }
-    count++;
-    if (count >= 28) {
-      clearInterval(interval);
-      bars.forEach((bar) => {
-        bar.classList.remove("red", "lightred");
-        bar.classList.add("green", "lightgreen");
-      });
-      clickingEnabled = true;
-    }
-  }, 250); // Vaihda väriä joka palkille 0.25 sekunnin välein
+function rotateCard() {
+  const card = document.querySelector(".card");
+  card.style.transform = "translate(-50%, -50%) rotate(5turn)"; /* Pyöritetään korttia 5 kierrosta ympäri */
+  card.style.backgroundColor = "red"; /* Vaihdetaan kortin taustaväri punaiseksi */
+  setTimeout(function() {
+    card.style.backgroundColor = "white"; /* Palautetaan kortin alkuperäinen taustaväri valkoiseksi */
+  }, 5000); /* Ajastetaan taustavärin muutos takaisin valkoiseksi 5 sekunnin kuluttua */
 }
-
-document.getElementById("card").addEventListener("click", function() {
-  if (clickingEnabled) {
-    startTimer();
-  }
-});
 </script>
 
 </body>
