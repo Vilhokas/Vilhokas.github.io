@@ -87,11 +87,6 @@
   Your browser does not support the audio element.
 </audio>
 
-<audio id="myAudio2"> <!-- Lisää mp3-tiedoston sijainti tähän -->
-  <source src="soundi2.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio> 
-
 <script>
 function startRotation() {
   const card = document.querySelector(".card");
@@ -105,7 +100,6 @@ function startRotation() {
     card.style.backgroundColor = "white"; /* Palautetaan kortin väri takaisin valkoiseksi */
     card.style.transform = "translate(-50%, -50%)"; /* Palautetaan kortti alkuperäiseen asentoon */
     card.style.transition = "background-color 0.5s"; /* Palautetaan alkuperäinen siirtymäominaisuus */
-    //myAudio2.play(); // Aloita mp3-tiedoston soitto
     // Arvotaan luku 1-52 ja näytetään se kortin keskellä
     const randomNumber = Math.floor(Math.random() * 52) + 1;
     card.textContent = randomNumber;
