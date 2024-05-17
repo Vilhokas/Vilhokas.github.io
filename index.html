@@ -79,12 +79,10 @@
 
 <script>
 
-let clickingEnabled = true;
-enableClick();
 function startRotation() {
+  //document.getElementById("card").disabled = true;
 
-  if (!clickingEnabled) return;
-  disableClick();
+
 
   //const card = document.getElementById(".card");
   const card = document.querySelector(".card");
@@ -93,7 +91,6 @@ function startRotation() {
   /* Lisätään kuva kortin taustalle arvotun numeron perusteella */
   card.style.backgroundImage = `url('cards/BackRed.png')`;
   card.style.transform = "translate(-50%, -50%) rotate(5turn)"; /* Pyöritetään korttia 5 kierrosta ympäri */
-  //card.textContent = "Arvotaan";
   const randomNumber = Math.floor(Math.random() * 52) + 1;
   myAudio1.play(); // Aloita mp3-tiedoston soitto
   
@@ -101,28 +98,13 @@ function startRotation() {
     //card.style.backgroundColor = "white"; /* Palautetaan kortin väri takaisin valkoiseksi */
     card.style.transform = "translate(-50%, -50%)"; /* Palautetaan kortti alkuperäiseen asentoon */
     card.style.transition = "background-color 0.25s"; /* Palautetaan alkuperäinen siirtymäominaisuus */
-    // Arvotaan luku 1-52 ja näytetään se kortin keskellä
-    //const randomNumber = Math.floor(Math.random() * 52) + 1;
-    //card.textContent = randomNumber;
     /* Lisätään kuva kortin taustalle arvotun numeron perusteella */
-    /* Arvotaan luku 1-52 välillä */
-    
     card.style.backgroundImage = `url('cards/${randomNumber}.png')`;
     //card.style.backgroundImage = `url('cards/King.png')`;
-    enableClick();
+
   }, 4500); /* 7 sekunnin kuluttua palautetaan kortti alkuperäiseen tilaan */
 }
 
-function disableClick() {
-  const card = document.getElementById("card");
-  card.removeAttribute("onclick");
-}
-
-function enableClick() {
-  const card = document.getElementById("card");
-  card.setAttribute("onclick", "startRotation()");
-}
-  
 </script>
 
 </body>
