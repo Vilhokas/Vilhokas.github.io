@@ -102,6 +102,7 @@ function startRotation() {
     /* Lisätään kuva kortin taustalle arvotun numeron perusteella */
     card.style.backgroundImage = `url('cards/${randomNumber}.png')`;
     //card.style.backgroundImage = `url('cards/King.png')`;
+    card.textContent = randomNumber;
 
   }, 4500); /* 7 sekunnin kuluttua palautetaan kortti alkuperäiseen tilaan */
 }
