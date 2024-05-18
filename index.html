@@ -88,7 +88,7 @@ function startRotation() {
   card.style.transition = "transform 4.5s"; /* Muutetaan siirtymäominaisuus pyörittämistä varten */
   /* card.style.backgroundColor = "red"; Vaihdetaan kortin väri punaiseksi */
   /* Lisätään kuva kortin taustalle arvotun numeron perusteella */
-  card.style.backgroundImage = `url('cards/BackRed.png')`;
+  card.style.backgroundImage = `url('cards/CardBack.png')`;
   card.style.transform = "translate(-50%, -50%) rotate(5turn)"; /* Pyöritetään korttia 5 kierrosta ympäri */
   const randomNumber = Math.floor(Math.random() * 52) + 1;
   myAudio1.play(); // Aloita mp3-tiedoston soitto
