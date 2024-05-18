@@ -53,7 +53,8 @@
   /* Lisätään hover-efekti, jotta kortin klikattavuus tulee ilmi 
   .card:hover {
     background-color: red; /* Vaihdetaan taustaväri punaiseksi, kun korttia pidetään päällä */
-  } */
+  } 
+  */
   
 </style>
 </head>
@@ -70,7 +71,7 @@
 <div class="bar"></div> <!-- Palkki 9 -->
 <div class="bar"></div> <!-- Palkki 10 -->
 
-/* <div class="card" onclick="startRotation()"><!-- Kortti --> */
+
 <button class="card" id="card" onclick="startRotation()"></button>
   
 <audio id="myAudio1"> <!-- Lisää mp3-tiedoston sijainti tähän -->
@@ -102,7 +103,7 @@ function startRotation() {
     /* Lisätään kuva kortin taustalle arvotun numeron perusteella */
     card.style.backgroundImage = `url('cards/${randomNumber}.png')`;
     //card.style.backgroundImage = `url('cards/King.png')`;
-    card.textContent = randomNumber;
+    //card.textContent = randomNumber;
 
   }, 4500); /* 7 sekunnin kuluttua palautetaan kortti alkuperäiseen tilaan */
 }
